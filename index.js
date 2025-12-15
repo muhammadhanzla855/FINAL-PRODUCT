@@ -24,3 +24,23 @@
       mainImage.src = thumbnail.src;
     });
   });
+
+
+
+   const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const tab = button.getAttribute('data-tab');
+
+      tabContents.forEach(content => {
+        content.classList.add('hidden');
+      });
+
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(tab).classList.remove('hidden');
+      button.classList.add('active');
+    });
+  });
