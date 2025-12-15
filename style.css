@@ -1,0 +1,404 @@
+/* ------------------- RESET / BOILERPLATE ------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+}
+
+/* ------------------- PRODUCT GRID ------------------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: 120px 640px 1fr;
+  gap: 2rem;
+  align-items: start;
+  padding: 2rem;
+}
+
+/* ------------------- THUMBNAILS ------------------- */
+.thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.thumbnail {
+  width: 120px;
+  height: 150px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  object-fit: contain;
+  cursor: pointer;
+  background-color: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.thumbnail:hover {
+  border-color: #000;
+}
+
+/* ------------------- MAIN IMAGE ------------------- */
+.main-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+.main-image img {
+  width: 100%;
+  height: auto;
+  max-height: calc(150px*4 + 16px*3);
+  object-fit: contain;
+}
+/* ------------------- DETAILS ------------------- */
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.breadcrumb {
+  font-size: 12px;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111827;
+}
+
+.price {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.price .current {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.price .old {
+  font-size: 16px;
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+.desc p {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+/* Info section */
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.info-item img {
+  width: 24px;
+  height: 24px;
+}
+
+.info-title {
+  font-size: 10px;
+  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+.info-value {
+  font-size: 14px;
+  color: #111827;
+}
+
+/* Add to Cart */
+.add-cart {
+  width: 100%;
+  height: 60px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect: background becomes transparent, text black */
+.add-cart:hover {
+  background-color: transparent;
+  color: #000;
+  border: 1px solid #000;
+}
+
+/* Bottom Actions */
+.bottom-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.qty-container {
+  display: flex;
+  width: 140px;
+  height: 52px;
+  border: 1px solid #d1d5db;
+  
+  overflow: hidden;
+}
+
+.qty-btn {
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.qty-container .count {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid #d1d5db;
+  border-right: 1px solid #d1d5db;
+}
+
+/* Wishlist button without border-radius */
+.wishlist-container {
+  flex: 1;
+  border: 1px solid #000;
+  border-radius: 0; /* Removed border-radius */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Delivery Section */
+.delivery {
+  display: flex;
+  flex-direction: column;
+  background-color: #F4F4F4;
+  padding: 14px 8px;
+  border-radius: 6px;
+  gap: 4px;
+  margin-top: 9px;
+}
+
+.delivery-text1 {
+  font-size: 15px;
+  color: #6b7280;
+}
+
+.delivery-text {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* Payment Section */
+.payment {
+  margin-top: 9px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.payment p {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.cards {
+  display: flex;
+  gap: 8px;
+}
+
+.cards img {
+  width: 50px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* =================== MOBILE LAYOUT =================== */
+@media (max-width: 435px) {
+
+  /* ---------- GRID ---------- */
+  .product-grid {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  /* ---------- FORCE ORDER (IMPORTANT) ---------- */
+  .main-image {
+    order: 1;
+  }
+
+  .thumbs {
+    order: 2;
+  }
+
+  .details {
+    order: 3;
+  }
+
+  /* ---------- MAIN IMAGE ---------- */
+  .main-image {
+    width: 360px;
+    height: 359px;
+    margin: 0 auto;
+  }
+
+  .main-image img {
+    max-height: 359px;
+  }
+
+  /* ---------- THUMBNAILS ---------- */
+  .thumbs {
+    flex-direction: row;
+    justify-content: center;
+    width: 320px;
+    height: 66px;
+    gap: 21px;
+    margin: 12px auto 0;
+  }
+
+  .thumbnail {
+    width: 64.25px;
+    height: 66px;
+    border-radius: 4px;
+    border: 2px solid #00000069;
+  }
+
+  /* ---------- DETAILS WRAPPER ---------- */
+  .details {
+    width: 314px;
+    margin: 16px auto 0;
+    gap: 16px;
+  }
+
+  /* ---------- BREADCRUMB ---------- */
+  .breadcrumb {
+    font-size: 12px;
+  }
+
+  /* ---------- TITLE ---------- */
+  .title {
+    font-size: 22px;
+    line-height: 1.25;
+  }
+
+  /* ---------- PRICE ---------- */
+  .price {
+    gap: 16px;
+  }
+
+  /* ---------- DESCRIPTION ---------- */
+  .desc p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ---------- SEX / POIDS ---------- */
+  .info {
+    width: 311px;
+    height: 48px;
+    justify-content: space-between;
+  }
+
+  .info-item:first-child {
+    width: 127px;
+  }
+
+  .info-item:last-child {
+    width: 115px;
+  }
+
+  /* ---------- ADD TO CART ---------- */
+  .add-cart {
+    width: 312px;
+    height: 60px;
+    margin: 12px auto 0;
+  }
+
+  /* ---------- QTY + WISHLIST ---------- */
+  .bottom-actions {
+    width: 312px;
+    gap: 23px;
+    margin: 12px auto 0;
+  }
+
+  .qty-container {
+    width: 133px;
+    height: 47px;
+    border-width: 1px;
+  }
+
+  .wishlist-container {
+    width: 156px;
+    height: 47px;
+    border-width: 1px;
+  }
+
+  /* ---------- DELIVERY ---------- */
+  .delivery {
+    width: 314px;
+    gap: 10px;
+    padding: 14px 8px;
+    margin: 12px auto 0;
+  }
+
+  .delivery-text1 {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .delivery-text {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  /* ---------- PAYMENT ---------- */
+  .payment {
+    width: 310px;
+    gap: 16px;
+    margin: 12px auto 0;
+  }
+
+  .cards {
+    gap: 16px;
+  }
+
+  .cards img {
+    width: 61px;
+    height: 36px;
+  }
+}
