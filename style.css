@@ -639,6 +639,6 @@ select {
   }
 
   .color-images img {
-    max-width: 240px;   /* MOBILE SIZE */
+    max-width: 300px;   /* MOBILE SIZE */
   }
 }
