@@ -406,18 +406,19 @@ body {
 }
 
 
-
 /* ==========================
-   Tabs Section
+   BASE / DESKTOP STYLES
 ========================== */
 
+/* --------------------------
+   Tabs Section
+-------------------------- */
 .tabs-section {
   max-width: 1200px;
   margin: 50px auto;
   padding: 0 20px;
 }
 
-/* Tabs Header */
 .tabs-header {
   display: flex;
   gap: 10px;
@@ -445,7 +446,6 @@ body {
   color: #666;
 }
 
-/* Tabs Content */
 .tabs-content {
   margin-top: 20px;
 }
@@ -454,10 +454,9 @@ body {
   display: none;
 }
 
-/* ==========================
+/* --------------------------
    Card Styling
-========================== */
-
+-------------------------- */
 .card {
   background-color: #fff;
   padding: 20px;
@@ -478,10 +477,9 @@ body {
   color: #555;
 }
 
-/* ==========================
+/* --------------------------
    Select Dropdown
-========================== */
-
+-------------------------- */
 select {
   padding: 10px;
   font-size: 16px;
@@ -493,26 +491,25 @@ select {
   cursor: pointer;
 }
 
-/* ==========================
-   Size Images
-========================== */
-
-/* Mobile Layout */
+/* --------------------------
+   Sizes Section (Desktop Grid)
+-------------------------- */
 .sizes-mobile {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  align-items: end; /* Align images bottom */
   margin-top: 20px;
 }
 
 .size-item {
   text-align: center;
-  flex: 1 1 45%;
 }
 
 .size-item img {
-  max-width: 100%;
-  height: auto;
+  max-height: 200px;
+  width: 100%;
+  object-fit: contain;
 }
 
 .size-item p {
@@ -521,25 +518,9 @@ select {
   font-weight: 500;
 }
 
-/* Desktop Layout */
-@media (min-width: 768px) {
-  .sizes-mobile {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    align-items: end; /* Align images bottom */
-  }
-
-  .size-item img {
-    max-height: 200px; /* Maintain proportionality */
-    object-fit: contain;
-  }
-}
-
-/* ==========================
+/* --------------------------
    Video Section
-========================== */
-
+-------------------------- */
 .video-section {
   max-width: 1200px;
   margin: 50px auto;
@@ -549,7 +530,7 @@ select {
 .video-container {
   position: relative;
   width: 100%;
-  padding-bottom: 50%;
+  padding-bottom: 48%;
   margin-bottom: 20px;
 }
 
@@ -561,84 +542,97 @@ select {
   height: 100%;
 }
 
-/* Desktop / Mobile Display */
-.video-container.desktop {
-  display: none;
+/* --------------------------
+   Colors Tab – Desktop Layout
+-------------------------- */
+#colors .card {
+  max-width: 1312px;
+  margin: 0 auto;
 }
 
-.video-container.mobile {
-  display: block;
+#colors h2 {
+  max-width: 500px;
+  font-size: 28px;
+  margin-bottom: 12px;
 }
 
-@media (min-width: 768px) {
-  .video-container.desktop {
-    display: block;
-    padding-bottom: 48%;
-  }
-  .video-container.mobile {
-    display: none;
-  }
+#colors p {
+  max-width: 1253px;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.color-images {
+  width: 1294px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.color-images img:first-child {
+  width: 520px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.color-images img:nth-child(2),
+.color-images img:nth-child(3) {
+  width: 1100px;
+  height: 44px;
+  object-fit: contain;
 }
 
 /* ==========================
-   COLORS TAB – DESKTOP (LEFT STACKED)
+   MOBILE / TABLET MEDIA QUERIES
 ========================== */
 
-@media (min-width: 1024px) {
-
-  /* Whole card width */
-  #colors .card {
-    max-width: 1312px;
-    margin: 0 auto;
-  }
-
-  /* Title */
-  #colors h2 {
-    max-width: 500px;
-    font-size: 28px;
-    margin-bottom: 12px;
-  }
-
-  /* Paragraph */
-  #colors p {
-    max-width: 1253px;
-    margin-bottom: 32px;
-    line-height: 1.6;
-  }
-
-  /* IMAGE CONTAINER */
-  .color-images {
-    width: 1294px;
-    height: 160px;
+/* --------------------------
+   Sizes Section Mobile
+-------------------------- */
+@media (max-width: 767px) {
+  .sizes-mobile {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* LEFT SIDE */
-    gap: 24px;
-    margin-left: 0;
+    flex-wrap: wrap;
+    gap: 20px;
   }
 
-  /* TOP IMAGE */
-  .color-images img:first-child {
-    width: 520px;
-    height: 24px;
-    object-fit: contain;
+  .size-item {
+    flex: 1 1 45%;
   }
 
-  /* BOTTOM TWO IMAGES */
-  .color-images img:nth-child(2),
-  .color-images img:nth-child(3) {
-    width: 1100px;
-    height: 44px;
-    object-fit: contain;
+  .size-item img {
+    max-width: 100%;
+    height: auto;
   }
 }
+
+/* --------------------------
+   Video Section Mobile
+-------------------------- */
+@media (max-width: 767px) {
+  .video-container.desktop {
+    display: none;
+  }
+  .video-container.mobile {
+    display: block;
+    padding-bottom: 50%;
+  }
+}
+
+/* --------------------------
+   Colors Tab Mobile
+-------------------------- */
 @media (max-width: 435px) {
   .color-images {
+    display: grid;
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
   .color-images img {
-    max-width: 240px;   /* MOBILE SIZE */
+    max-width: 240px;
+    height: auto;
   }
 }
